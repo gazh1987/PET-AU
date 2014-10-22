@@ -48,7 +48,7 @@ CREATE TABLE [Stock_order]
 	[quantity]           integer(4)  NULL ,
 	[cost_price]         money(19,4)  NULL ,
 	[staff_id]           integer(4)  NULL ,
-	[order_date]         datetime  NULL ,
+	[order_date]         date  NULL ,
 	CONSTRAINT [XPKStock_order] PRIMARY KEY  CLUSTERED ([order_no] ASC,[supplier_id] ASC),
 	CONSTRAINT [R_24] FOREIGN KEY ([staff_id]) REFERENCES [Staff]([staff_id]),
 CONSTRAINT [R_30] FOREIGN KEY ([supplier_id]) REFERENCES [Suppliers]([supplier_id])
@@ -57,7 +57,7 @@ CONSTRAINT [R_30] FOREIGN KEY ([supplier_id]) REFERENCES [Suppliers]([supplier_i
 CREATE TABLE [Stock]
 ( 
 	[stock_id]           integer(4)  NOT NULL ,
-	[sale_price]         money  NULL ,
+	[sale_price]         money(19, 4)  NULL ,
 	[amount_in_stock]    integer(4)  NULL ,
 	[reorder_level]      integer(4)  NULL ,
 	[order_no]           integer(4)  NULL ,
@@ -124,7 +124,7 @@ CREATE TABLE [Sales_receipt]
 	[receipt_id]         integer(4)  NOT NULL ,
 	[animal_id]          integer(4)  NULL ,
 	[material_id]        integer(4)  NULL ,
-	[date]               datetime  NULL ,
+	[sale_date]               date  NULL ,
 	CONSTRAINT [XPKSales_receipt] PRIMARY KEY  CLUSTERED ([receipt_id] ASC),
 	CONSTRAINT [R_25] FOREIGN KEY ([animal_id]) REFERENCES [Animal]([animal_id]),
 CONSTRAINT [R_26] FOREIGN KEY ([material_id]) REFERENCES [Materials]([material_id])
@@ -133,6 +133,7 @@ CONSTRAINT [R_26] FOREIGN KEY ([material_id]) REFERENCES [Materials]([material_i
 CREATE TABLE [Customer]
 ( 
 	[receipt_id]         integer(4)  NOT NULL ,
+	[customer_name]		 varchar(40) NOT NULL, <%-- Added just so theres not one attribute. Also you need a license nowadays for anything so you might need to keep name -->
 	CONSTRAINT [XPKCustomer] PRIMARY KEY  CLUSTERED ([receipt_id] ASC),
 	CONSTRAINT [R_28] FOREIGN KEY ([receipt_id]) REFERENCES [Sales_receipt]([receipt_id])
 )
@@ -149,7 +150,7 @@ CREATE TABLE [Diseases]
 
 CREATE TABLE [Upkeep]
 ( 
-	[date_of_check]      datetime  NOT NULL ,
+	[date_of_check]      date  NOT NULL ,
 	[enclosure_id]       integer(4)  NOT NULL ,
 	[staff_id]           integer(4)  NOT NULL ,
 	[enclosure_cleaned]  char(1)  NULL ,
