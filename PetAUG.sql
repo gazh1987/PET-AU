@@ -93,6 +93,8 @@ CREATE TABLE Animal
 	weight             VARCHAR(20)  NULL ,
 	species_name       VARCHAR(20)  NULL ,
 	enclosure_id       INT          NULL ,
+	treatment		   VARCHAR(20)	NULL ,
+	sold			   CHAR(1)		NOT NULL ,
 	PRIMARY KEY       (animal_id),
 	FOREIGN KEY (species_name) REFERENCES Species(species_name),
   FOREIGN KEY (enclosure_id) REFERENCES Enclosure(enclosure_id)
