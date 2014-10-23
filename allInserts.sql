@@ -1,4 +1,4 @@
--- Staff Table
+------- Staff Table
 INSERT INTO staff (staff_id, staff_name) VALUES (1234, 'Gary Healy');
 INSERT INTO staff (staff_id, staff_name) VALUES (1235, 'Stefan Burke');
 INSERT INTO staff (staff_id, staff_name) VALUES (1236, 'Francis Marron');
@@ -11,15 +11,9 @@ INSERT INTO suppliers (supplier_id, supplier_name, supplier_address) VALUES (200
 INSERT INTO suppliers (supplier_id, supplier_name, supplier_address) VALUES (2003, 'Tims Tropical Fish', 'Dublin 8');
 INSERT INTO suppliers (supplier_id, supplier_name, supplier_address) VALUES (2004, 'Andys Animals', 'Kildare');
 
-
---Stock Order Inserts
-INSERT INTO Stock_order (order_no, supplier_id, quantity, cost_price, staff_id, order_date) VALUES (4000, 2001, 30, 05.00, 1234, '10-Oct-14');
-INSERT INTO Stock_order (order_no, supplier_id, quantity, cost_price, staff_id, order_date) VALUES (4001, 2002, 50, 60.00, 1235, '12-Oct-14');
-INSERT INTO Stock_order (order_no, supplier_id, quantity, cost_price, staff_id, order_date) VALUES (4002, 2003, 30, 05.00, 1236, '15-Oct-14');
-INSERT INTO Stock_order (order_no, supplier_id, quantity, cost_price, staff_id, order_date) VALUES (4003, 2004, 5, 05.00, 1234, '10-Oct-14');
-
-
 -- Stock Table 
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3001, 10.00 , 50, 50); --DOG FOOD
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3002, 100.00 , 2, 20); --kennel
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3004, 50.00 , 2, 10); -- dogs
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3005, 50.00 ,2, 1); --cats
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3006, 20.00 , 2, 1); --hamsters
@@ -29,16 +23,20 @@ INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES 
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3010, 50.00 , 2, 1); --tropical fish
 
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3011, 10.00 , 50, 1); --cat food
-INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3012, 10.00 , 50, 1); --fish food
-INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3001, 10.00 , 50, 50); --DOG FOOD
-INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3002, 100.00 , 2, 20); --kennel
-INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3013, 10.00 , 0, 1);
-INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3014, 10.00 , 0, 1);
-INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3015, 10.00 , 2, 1);
-INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3016, 10.00 , 15, 1);
-INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3017, 50.00 , 2, 1);
-INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3018, 50.00 , 2, 1);
-INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3019, 50.00 , 2, 1);
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3012, 10.00 , 50, 1); --tropical fish food
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3013, 10.00 , 0, 1); --hamster food
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3014, 10.00 , 0, 1); --guinea pig food
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3015, 10.00 , 2, 1); --cold water fish food
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3016, 10.00 , 15, 1); --white mice food
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3017, 50.00 , 2, 1); --guinea pig cage 
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3018, 50.00 , 2, 1); --white mice cage
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3019, 50.00 , 2, 1); --hamster cage
+
+--Stock Order Inserts
+INSERT INTO Stock_order (order_no, supplier_id, stock_id, quantity, cost_price, staff_id, order_date) VALUES (4000, 2001, 3001, 30, 05.00, 1234, '10-Oct-14');
+INSERT INTO Stock_order (order_no, supplier_id, stock_id, quantity, cost_price, staff_id, order_date) VALUES (4001, 2002, 3002, 2, 60.00, 1235, '12-Oct-14');
+INSERT INTO Stock_order (order_no, supplier_id, stock_id, quantity, cost_price, staff_id, order_date) VALUES (4002, 2003, 3012, 30, 05.00, 1236, '15-Oct-14');
+INSERT INTO Stock_order (order_no, supplier_id, stock_id, quantity, cost_price, staff_id, order_date) VALUES (4003, 2004, 3004, 1, 05.00, 1234, '10-Oct-14');
 
 
 --Species Inserts
@@ -48,7 +46,7 @@ INSERT INTO Species (species_name, feeding_instructions, stock_id, enclosure_siz
 INSERT INTO Species (species_name, feeding_instructions, stock_id, enclosure_size, healthcare, cleaning_requirements) VALUES ('guinea pig', '1 time per day', 3007, 'small', 'yearly shots', 'change box lining');
 INSERT INTO Species (species_name, feeding_instructions, stock_id, enclosure_size, healthcare, cleaning_requirements) VALUES ('white mice', '2 times daily', 3008, 'small', 'yearly shots', 'change box lining');
 INSERT INTO Species (species_name, feeding_instructions, stock_id, enclosure_size, healthcare, cleaning_requirements) VALUES ('cold water fish', '2 times daily', 3009, 'large', 'medicine', 'clean daily');
-INSERT INTO Species (species_name, feeding_instructions, stock_id, enclosure_size, healthcare, cleaning_requirements) VALUES ('tropical fish', '2 times daily', 3004, 'large', 'medicine', 'clean daily');
+INSERT INTO Species (species_name, feeding_instructions, stock_id, enclosure_size, healthcare, cleaning_requirements) VALUES ('tropical fish', '2 times daily', 3010, 'large', 'medicine', 'clean daily');
 
 --Enclosure Table
 INSERT INTO enclosure (enclosure_id, enclosure_type) VALUES (5001, 'individual'); --dog

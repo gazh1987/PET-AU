@@ -50,11 +50,12 @@ INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_i
 INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6014, "gold", "50cm", "0.5kg", "tropical fish", 5009);
 
 --Sales Reciept Table
-INSERT INTO sales_reciept (reciept_id, animal_id, material_id, date) VALUES (9001, 6014, "<%-- STEFAN FILL THIS IN --%>", "<%--CHANGE THE DATETIME TO JUST DATE (eg 18-jun-14) and then fill this in --%>");
+INSERT INTO sales_reciept (reciept_id, animal_id, material_id, sale_date) VALUES (9001, 6014, 7003, 18-oct-14);
+INSERT INTO sales_reciept (reciept_id, animal_id, material_id, sale_date) VALUES (9002, 6003, 7001, 18-oct-14);
 
 --Customer
-INSERT INTO customer VALUES (9001);
-<%-- MAYBE ADD ONE ONE MORE SALES RECIEPT AND CUSTOMER, I NEED YOU TOO FILL IN THE MATERIAL ID BECAUSE I DONT HAVE THOSE INSERTS TO REFERENCE THE ID'S --%>
+INSERT INTO customer (receipt_id, customer_name) VALUES (9001, "Joe Bloggs");
+INSERT INTO customer (receipt_id, customer_name) VALUES (9001, "Annie Yowks");
 
 --DISEASES TABLE
 INSERT INTO diseases(disease_name, species_name, symptoms, treatment) VALUES ("Lyme Disease", "dog", "inflamation of the joints", "antibiotics");
@@ -73,7 +74,7 @@ INSERT INTO diseases(disease_name, species_name, symptoms, treatment) VALUES ("r
 INSERT INTO diseases(disease_name, species_name, symptoms, treatment) VALUES ("lice", "white mice", "loss of hair", "cream and antibiotics");
 
 INSERT INTO diseases(disease_name, species_name, symptoms, treatment) VALUES ("body flukes", "cold water fish", "Layer of mucus covering gills or body.", "Tetra parasite guard");
-INSERT INTO diseases(disease_name, species_name, symptoms, treatment) VALUES ("body flukes", "tropical fish", "Layer of mucus covering gills or body.", "Tetra parasite 
+INSERT INTO diseases(disease_name, species_name, symptoms, treatment) VALUES ("body flukes", "tropical fish", "Layer of mucus covering gills or body.", "Tetra parasite guard");
 INSERT INTO diseases(disease_name, species_name, symptoms, treatment) VALUES ("Dropsy", "cold water fish", "Bloating.", "Antibiotic injections");
 INSERT INTO diseases(disease_name, species_name, symptoms, treatment) VALUES ("Dropsy", "tropical fish", "Bloating.", "Antibiotic injections");
 
