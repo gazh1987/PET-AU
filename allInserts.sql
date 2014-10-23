@@ -29,17 +29,17 @@ INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES 
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3008, 10.00 , 2, 1); --White Mice
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3009, 10.00 , 2, 1); --cold water fish
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3010, 50.00 , 2, 1); --tropical fish
-
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3011, 10.00 , 50, 1); --cat food
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3012, 10.00 , 50, 1); --fish food
 
 --Species Inserts
 INSERT INTO Species (species_name, feeding_instructions, stock_id, enclosure_size, healthcare, cleaning_requirements) VALUES ('dog', '3 times daily', 3004, 'large', 'walk daily, yearly shots', 'clean daily');
-INSERT INTO Species (species_name, feeding_instructions, stock_id, enclosure_size, healthcare, cleaning_requirements) VALUES ('cat', '2 times daily', 3005, 'large' 'yearly shots', 'change litter daily');
+INSERT INTO Species (species_name, feeding_instructions, stock_id, enclosure_size, healthcare, cleaning_requirements) VALUES ('cat', '2 times daily', 3005, 'large', 'yearly shots', 'change litter daily');
 INSERT INTO Species (species_name, feeding_instructions, stock_id, enclosure_size, healthcare, cleaning_requirements) VALUES ('hamster', '1 time per day', 3006, 'small', 'yearly shots', 'change box lining');
 INSERT INTO Species (species_name, feeding_instructions, stock_id, enclosure_size, healthcare, cleaning_requirements) VALUES ('guinea pig', '1 time per day', 3007, 'small', 'yearly shots', 'change box lining');
 INSERT INTO Species (species_name, feeding_instructions, stock_id, enclosure_size, healthcare, cleaning_requirements) VALUES ('white mice', '2 times daily', 3008, 'small', 'yearly shots', 'change box lining');
 INSERT INTO Species (species_name, feeding_instructions, stock_id, enclosure_size, healthcare, cleaning_requirements) VALUES ('cold water fish', '2 times daily', 3009, 'large', 'medicine', 'clean daily');
-INSERT INTO Species (species_name, feeding_instructions, stock_id, enclosure_size, healthcare, cleaning_requirements) VALUES ('tropical', '2 times daily', 3004, 'large', 'medicine', 'clean daily');
-
+INSERT INTO Species (species_name, feeding_instructions, stock_id, enclosure_size, healthcare, cleaning_requirements) VALUES ('tropical fish', '2 times daily', 3004, 'large', 'medicine', 'clean daily');
 
 --Enclosure Table
 INSERT INTO enclosure (enclosure_id, enclosure_type) VALUES (5001, 'individual'); --dog
@@ -60,8 +60,8 @@ INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_i
 INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6004, 'White', '2feet', '15kg', 'cat', 5004);
 INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6005, 'White', '10cm', '0.5kg', 'hamster', 5005);
 INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6006, 'White', '10cm', '0.5kg', 'hamster', 5005);
-INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6007, 'brown', '10cm', '0.5kg', 'guinea pigs', 5006);
-INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6008, 'brown', '10cm', '0.5kg', 'guinea pigs', 5006);
+INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6007, 'brown', '10cm', '0.5kg', 'guinea pig', 5006);
+INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6008, 'brown', '10cm', '0.5kg', 'guinea pig', 5006);
 INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6009, 'White', '10cm', '0.5kg', 'white mice', 5007);
 INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6010, 'White', '10cm', '0.5kg', 'white mice', 5007);
 INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6011, 'grey', '50cm', '0.5kg', 'cold water fish', 5008);
@@ -81,23 +81,22 @@ INSERT INTO Veterinary_cert (cert_number, animal_id, guarentee_period, shots_rec
 INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7000, 'dog food', 'dog', 3001);
 INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7001, 'cat food', 'cat', 3011);
 INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7002, 'kennell', 'dog', 3002);
-INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7003, 'fish food', 'fish', 3012);
-INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7000, 'dog food', 'dog', 3001);
+INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7003, 'fish food', 'tropical fish', 3012);
 
 
 --Sales Reciept Table
-INSERT INTO sales_reciept (reciept_id, animal_id, material_id, sale_date) VALUES (9001, 6014, 7003, '18-oct-14');
-INSERT INTO sales_reciept (reciept_id, animal_id, material_id, sale_date) VALUES (9002, 6003, 7001, '18-oct-14');
+INSERT INTO Sales_receipt (receipt_id, animal_id, material_id, sale_date) VALUES (9001, 6014, 7003, '18-oct-14');
+INSERT INTO sales_receipt (receipt_id, animal_id, material_id, sale_date) VALUES (9002, 6003, 7001, '18-oct-14');
 
 
 --Customer
 INSERT INTO customer (receipt_id, customer_name) VALUES (9001, 'Joe Bloggs');
-INSERT INTO customer (receipt_id, customer_name) VALUES (9001, 'Annie Yowks');
+INSERT INTO customer (receipt_id, customer_name) VALUES (9002, 'Annie Yowks');
 
 
 --DISEASES TABLE
 INSERT INTO diseases(disease_name, species_name, symptoms, treatment) VALUES ('Lyme Disease', 'dog', 'inflamation of the joints', 'antibiotics');
-INSERT INTO diseases(disease_name, species_name, symptoms, treatment) VALUES ('Mange', 'dog', 'skin lesions', 'antibiotics', 'long term medication');
+INSERT INTO diseases(disease_name, species_name, symptoms, treatment) VALUES ('Mange', 'dog', 'skin lesions', 'antibiotics');
 INSERT INTO diseases(disease_name, species_name, symptoms, treatment) VALUES ('Chronic Vomitting', 'dog', 'chronic vommiting', 'antibiotics');
 
 INSERT INTO diseases(disease_name, species_name, symptoms, treatment) VALUES ('Chronic Vomitting', 'cat', 'chronic vommiting', 'antibiotics');
@@ -128,6 +127,6 @@ INSERT INTO Upkeep (date_of_check, enclosure_id, staff_id, enclosure_cleaned, an
 INSERT INTO Upkeep (date_of_check, enclosure_id, staff_id, enclosure_cleaned, animals_fed, exercise_if_required, disease_name, species_name) VALUES ('12-Oct-2014', 5008, 1236, 'Y', 'Y', 'Y', null, 'cold water fish');
 INSERT INTO Upkeep (date_of_check, enclosure_id, staff_id, enclosure_cleaned, animals_fed, exercise_if_required, disease_name, species_name) VALUES ('12-Oct-2014', 5009, 1234, 'Y', 'Y', 'Y', null, 'tropical fish');
 
-
+COMMIT;
 
  

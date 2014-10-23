@@ -90,7 +90,7 @@ CREATE TABLE Animal
 	animal_id          INT          NOT NULL ,
 	colour             VARCHAR(20)  NULL ,
 	height             VARCHAR(20)  NULL ,
-	weight             INT          NULL ,
+	weight             VARCHAR(20)  NULL ,
 	species_name       VARCHAR(20)  NULL ,
 	enclosure_id       INT          NULL ,
 	PRIMARY KEY       (animal_id),
