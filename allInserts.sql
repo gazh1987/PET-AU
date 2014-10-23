@@ -1,4 +1,4 @@
-------- Staff Table
+-- Staff Table
 INSERT INTO staff (staff_id, staff_name) VALUES (1234, 'Gary Healy');
 INSERT INTO staff (staff_id, staff_name) VALUES (1235, 'Stefan Burke');
 INSERT INTO staff (staff_id, staff_name) VALUES (1236, 'Francis Marron');
@@ -20,7 +20,7 @@ INSERT INTO Stock_order (order_no, supplier_id, quantity, cost_price, staff_id, 
 
 
 -- Stock Table 
-INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level, order_no, supplier_id) VALUES (3004, 50.00 , 2, 10, 4003, 2004); -- dogs
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3004, 50.00 , 2, 10); -- dogs
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3005, 50.00 ,2, 1); --cats
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3006, 20.00 , 2, 1); --hamsters
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3007, 20.00 , 2, 1); --guinea pig
@@ -30,8 +30,8 @@ INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES 
 
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3011, 10.00 , 50, 1); --cat food
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3012, 10.00 , 50, 1); --fish food
-INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level, order_no, supplier_id) VALUES (3001, 10.00 , 50, 50, 4000, 2001); --DOG FOOD
-INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level, order_no, supplier_id) VALUES (3002, 100.00 , 2, 20, 4001, 2002); --kennel
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3001, 10.00 , 50, 50); --DOG FOOD
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3002, 100.00 , 2, 20); --kennel
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3013, 10.00 , 0, 1);
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3014, 10.00 , 0, 1);
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3015, 10.00 , 2, 1);
