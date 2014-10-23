@@ -20,17 +20,26 @@ INSERT INTO Stock_order (order_no, supplier_id, quantity, cost_price, staff_id, 
 
 
 -- Stock Table 
-INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level, order_no, supplier_id) VALUES (3001, 10.00 , 50, 50, 4000, 2001); --DOG FOOD
-INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level, order_no, supplier_id) VALUES (3002, 100.00 , 2, 20, 4001, 2002); --kennel
-INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level, order_no, supplier_id) VALUES (3004, 50.00 , 2, 10, 4003, 2004); --Animals, dogs
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level, order_no, supplier_id) VALUES (3004, 50.00 , 2, 10, 4003, 2004); -- dogs
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3005, 50.00 ,2, 1); --cats
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3006, 20.00 , 2, 1); --hamsters
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3007, 20.00 , 2, 1); --guinea pig
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3008, 10.00 , 2, 1); --White Mice
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3009, 10.00 , 2, 1); --cold water fish
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3010, 50.00 , 2, 1); --tropical fish
+
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3011, 10.00 , 50, 1); --cat food
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3012, 10.00 , 50, 1); --fish food
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level, order_no, supplier_id) VALUES (3001, 10.00 , 50, 50, 4000, 2001); --DOG FOOD
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level, order_no, supplier_id) VALUES (3002, 100.00 , 2, 20, 4001, 2002); --kennel
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3013, 10.00 , 0, 1);
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3014, 10.00 , 0, 1);
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3015, 10.00 , 2, 1);
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3016, 10.00 , 15, 1);
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3017, 50.00 , 2, 1);
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3018, 50.00 , 2, 1);
+INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3019, 50.00 , 2, 1);
+
 
 --Species Inserts
 INSERT INTO Species (species_name, feeding_instructions, stock_id, enclosure_size, healthcare, cleaning_requirements) VALUES ('dog', '3 times daily', 3004, 'large', 'walk daily, yearly shots', 'clean daily');
@@ -78,11 +87,17 @@ INSERT INTO Veterinary_cert (cert_number, animal_id, guarentee_period, shots_rec
 
 
 --Materials Insert
-INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7000, 'dog food', 'dog', 3001);
-INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7001, 'cat food', 'cat', 3011);
-INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7002, 'kennell', 'dog', 3002);
-INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7003, 'fish food', 'tropical fish', 3012);
-
+INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7000, 'dog food', 'dog', 3001); --
+INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7002, 'kennell', 'dog', 3002); --
+INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7001, 'cat food', 'cat', 3011); -- 
+INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7003, 'fish food', 'tropical fish', 3012); --
+INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7004, 'rodent food', 'hamsters', 3013);
+INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7005, 'rodent food', 'guinea pigs', 3014);
+INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7006, 'fish food', 'cold water fish', 3015);
+INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7007, 'rodent food', 'white mice', 3016);
+INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7008, 'rodent cage', 'guinea pigs', 3017);
+INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7009, 'rodent cage', 'white mice', 3018);
+INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7002, 'rodent cage', 'hamsters', 3019);
 
 --Sales Reciept Table
 INSERT INTO Sales_receipt (receipt_id, animal_id, material_id, sale_date) VALUES (9001, 6014, 7003, '18-oct-14');
