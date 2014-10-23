@@ -91,13 +91,13 @@ INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES 
 INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7002, 'kennell', 'dog', 3002); --
 INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7001, 'cat food', 'cat', 3011); -- 
 INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7003, 'fish food', 'tropical fish', 3012); --
-INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7004, 'rodent food', 'hamsters', 3013);
-INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7005, 'rodent food', 'guinea pigs', 3014);
+INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7004, 'rodent food', 'hamster', 3013);
+INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7005, 'rodent food', 'guinea pig', 3014);
 INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7006, 'fish food', 'cold water fish', 3015);
 INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7007, 'rodent food', 'white mice', 3016);
-INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7008, 'rodent cage', 'guinea pigs', 3017);
+INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7008, 'rodent cage', 'guinea pig', 3017);
 INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7009, 'rodent cage', 'white mice', 3018);
-INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7002, 'rodent cage', 'hamsters', 3019);
+INSERT INTO Materials (material_id, description, species_name, stock_id) VALUES (7010, 'rodent cage', 'hamster', 3019);
 
 --Sales Reciept Table
 INSERT INTO Sales_receipt (receipt_id, animal_id, material_id, sale_date) VALUES (9001, 6014, 7003, '18-oct-14');
