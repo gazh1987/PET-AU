@@ -1,165 +1,165 @@
 
-DROP TABLE [Upkeep]
+DROP TABLE Upkeep;
 
-DROP TABLE [Diseases]
+DROP TABLE Diseases;
 
-DROP TABLE [Customer]
+DROP TABLE Customer;
 
-DROP TABLE [Sales_receipt]
+DROP TABLE Sales_receipt;
 
-DROP TABLE [Materials]
+DROP TABLE Materials;
 
-DROP TABLE [Veterinary_cert]
+DROP TABLE Veterinary_cert;
 
-DROP TABLE [Animal]
+DROP TABLE Animal;
 
-DROP TABLE [Enclosure]
+DROP TABLE Enclosure;
 
-DROP TABLE [Species]
+DROP TABLE Species;
 
-DROP TABLE [Stock]
+DROP TABLE Stock;
 
-DROP TABLE [Stock_order]
+DROP TABLE Stock_order;
 
-DROP TABLE [Suppliers]
+DROP TABLE Suppliers;
 
-DROP TABLE [Staff]
+DROP TABLE Staff;
 
-CREATE TABLE [Staff]
+CREATE TABLE Staff
 ( 
-	[staff_id]           integer(4)  NOT NULL ,
-	[staff_name]         varchar(20)  NULL ,
-	CONSTRAINT [XPKStaff] PRIMARY KEY  CLUSTERED ([staff_id] ASC)
-)
+	staff_id           INT  NOT NULL ,
+	staff_name         varchar(20)  NULL ,
+  PRIMARY KEY        (staff_id)
+);
 
-CREATE TABLE [Suppliers]
+CREATE TABLE Suppliers
 ( 
-	[supplier_id]        integer(4)  NOT NULL ,
-	[supplier_name]      varchar(20)  NULL ,
-	[supplier_address]   varchar(40)  NULL ,
-	CONSTRAINT [XPKSuppliers] PRIMARY KEY  CLUSTERED ([supplier_id] ASC)
-)
+	supplier_id        INT  NOT NULL ,
+	supplier_name      VARCHAR(20)  NULL ,
+	supplier_address   VARCHAR(40)  NULL ,
+	PRIMARY KEY        (supplier_id)
+);
 
 
-CREATE TABLE [Stock_order]
+CREATE TABLE Stock_order
 ( 
-	[order_no]           integer(4)  NOT NULL ,
-	[supplier_id]        integer(4)  NOT NULL ,
-	[quantity]           integer(4)  NULL ,
-	[cost_price]         money(19,4)  NULL ,
-	[staff_id]           integer(4)  NULL ,
-	[order_date]         date  NULL ,
-	CONSTRAINT [XPKStock_order] PRIMARY KEY  CLUSTERED ([order_no] ASC,[supplier_id] ASC),
-	CONSTRAINT [R_24] FOREIGN KEY ([staff_id]) REFERENCES [Staff]([staff_id]),
-CONSTRAINT [R_30] FOREIGN KEY ([supplier_id]) REFERENCES [Suppliers]([supplier_id])
-)
+	order_no            INT  NOT NULL ,
+	supplier_id         INT   NOT NULL ,
+	quantity            INT  NULL ,
+	cost_price          NUMBER(19,4)  NULL ,
+	staff_id            INT  NULL ,
+	order_date          date  NULL ,
+	PRIMARY KEY  (order_no, supplier_id),
+  FOREIGN KEY (staff_id) REFERENCES Staff (staff_id),
+  FOREIGN KEY (supplier_id) REFERENCES Suppliers(supplier_id)
+);
 
-CREATE TABLE [Stock]
+CREATE TABLE Stock
 ( 
-	[stock_id]           integer(4)  NOT NULL ,
-	[sale_price]         money(19, 4)  NULL ,
-	[amount_in_stock]    integer(4)  NULL ,
-	[reorder_level]      integer(4)  NULL ,
-	[order_no]           integer(4)  NULL ,
-	[supplier_id]        integer(4)  NULL ,
-	CONSTRAINT [XPKStock] PRIMARY KEY  CLUSTERED ([stock_id] ASC),
-	CONSTRAINT [R_32] FOREIGN KEY ([order_no],[supplier_id]) REFERENCES [Stock_order]([order_no],[supplier_id])
-)
+	stock_id            INT             NOT NULL ,
+	sale_price          NUMBER (19, 4)  NULL ,
+	amount_in_stock     INT             NULL ,
+	reorder_level       INT             NULL ,
+	order_no            INT             NULL ,
+	supplier_id         INT             NULL ,
+	PRIMARY KEY         (stock_id),
+  FOREIGN KEY (order_no, supplier_id) REFERENCES Stock_order(order_no,supplier_id)
+);
 
-CREATE TABLE [Species]
+CREATE TABLE Species
 ( 
-	[species_name]       varchar(20)  NOT NULL ,
-	[feeding_instructions] varchar(50)  NULL ,
-	[stock_id]           integer  NULL ,
-	[enclosure_size]     varchar(20)  NULL ,
-	[healthcare]         varchar(50)  NULL ,
-	[cleaning_requirements] varchar(50)  NULL ,
-	CONSTRAINT [XPKSpecies] PRIMARY KEY  CLUSTERED ([species_name] ASC),
-	CONSTRAINT [R_5] FOREIGN KEY ([stock_id]) REFERENCES [Stock]([stock_id])
-)
+	species_name          VARCHAR(20)  NOT NULL ,
+	feeding_instructions  VARCHAR(50)  NULL ,
+	stock_id              INT          NULL ,
+	enclosure_size        VARCHAR(20)  NULL ,
+	healthcare            VARCHAR(50)  NULL ,
+	cleaning_requirements VARCHAR(50)  NULL ,
+	PRIMARY KEY           (species_name),
+	FOREIGN KEY (stock_id) REFERENCES Stock(stock_id)
+);
 
-CREATE TABLE [Enclosure]
+CREATE TABLE Enclosure
 ( 
-	[enclosure_id]       integer(4)  NOT NULL ,
-	[enclosure_type]     varchar(20)  NULL ,
-	CONSTRAINT [XPKEnclosure] PRIMARY KEY  CLUSTERED ([enclosure_id] ASC)
-)
+	enclosure_id        INT          NOT NULL ,
+	enclosure_type      VARCHAR(20)  NULL ,
+	PRIMARY KEY         (enclosure_id)
+);
 
-CREATE TABLE [Animal]
+CREATE TABLE Animal
 ( 
-	[animal_id]          integer(4)  NOT NULL ,
-	[colour]             varchar(20)  NULL ,
-	[height]             varchar(20)  NULL ,
-	[weight]             integer(3)  NULL ,
-	[species_name]       varchar(20)  NULL ,
-	[enclosure_id]       integer(4)  NULL ,
-	CONSTRAINT [XPKAnimal] PRIMARY KEY  CLUSTERED ([animal_id] ASC),
-	CONSTRAINT [R_9] FOREIGN KEY ([species_name]) REFERENCES [Species]([species_name]),
-CONSTRAINT [R_11] FOREIGN KEY ([enclosure_id]) REFERENCES [Enclosure]([enclosure_id])
-)
+	animal_id          INT          NOT NULL ,
+	colour             VARCHAR(20)  NULL ,
+	height             VARCHAR(20)  NULL ,
+	weight             INT          NULL ,
+	species_name       VARCHAR(20)  NULL ,
+	enclosure_id       INT          NULL ,
+	PRIMARY KEY       (animal_id),
+	FOREIGN KEY (species_name) REFERENCES Species(species_name),
+  FOREIGN KEY (enclosure_id) REFERENCES Enclosure(enclosure_id)
+);
 
-CREATE TABLE [Veterinary_cert]
+CREATE TABLE Veterinary_cert
 ( 
-	[cert_number]        integer(4)  NOT NULL ,
-	[animal_id]          integer(4)  NOT NULL ,
-	[guarentee_period]   varchar(20)  NULL ,
-	[shots_recieved]     varchar(20)  NULL ,
-	CONSTRAINT [XPKVeterinary_cert] PRIMARY KEY  CLUSTERED ([cert_number] ASC),
-	CONSTRAINT [R_27] FOREIGN KEY ([animal_id]) REFERENCES [Animal]([animal_id])
-)
+	cert_number        INT          NOT NULL ,
+	animal_id          INT          NOT NULL ,
+	guarentee_period   VARCHAR(20)  NULL ,
+	shots_recieved     VARCHAR(20)  NULL ,
+  PRIMARY KEY        (cert_number),
+  FOREIGN KEY        (animal_id) REFERENCES Animal(animal_id)
+);
 
-CREATE TABLE [Materials]
+CREATE TABLE Materials
 ( 
-	[material_id]        integer(4)  NOT NULL ,
-	[description]        varchar(40)  NULL ,
-	[species_name]       varchar(20)  NULL ,
-	[stock_id]           integer(4)  NULL ,
-	CONSTRAINT [XPKMaterials] PRIMARY KEY  CLUSTERED ([material_id] ASC),
-	CONSTRAINT [R_6] FOREIGN KEY ([species_name]) REFERENCES [Species]([species_name]),
-CONSTRAINT [R_8] FOREIGN KEY ([stock_id]) REFERENCES [Stock]([stock_id])
-)
+	material_id        INT          NOT NULL ,
+	description        VARCHAR(40)  NULL ,
+	species_name       VARCHAR(20)  NULL ,
+	stock_id           INT          NULL ,
+	PRIMARY KEY        (material_id),
+	FOREIGN KEY        (species_name) REFERENCES Species(species_name),
+  FOREIGN KEY        (stock_id)     REFERENCES Stock(stock_id)
+);
 
-CREATE TABLE [Sales_receipt]
+CREATE TABLE Sales_receipt
 ( 
-	[receipt_id]         integer(4)  NOT NULL ,
-	[animal_id]          integer(4)  NULL ,
-	[material_id]        integer(4)  NULL ,
-	[sale_date]               date  NULL ,
-	CONSTRAINT [XPKSales_receipt] PRIMARY KEY  CLUSTERED ([receipt_id] ASC),
-	CONSTRAINT [R_25] FOREIGN KEY ([animal_id]) REFERENCES [Animal]([animal_id]),
-CONSTRAINT [R_26] FOREIGN KEY ([material_id]) REFERENCES [Materials]([material_id])
-)
+	receipt_id          INT   NOT NULL ,
+	animal_id           INT   NULL ,
+	material_id         INT   NULL ,
+	sale_date           DATE  NULL ,
+	PRIMARY KEY         (receipt_id),
+	FOREIGN KEY (animal_id)   REFERENCES Animal(animal_id),
+  FOREIGN KEY (material_id) REFERENCES Materials(material_id)
+);
 
-CREATE TABLE [Customer]
+CREATE TABLE Customer
 ( 
-	[receipt_id]         integer(4)  NOT NULL ,
-	[customer_name]		 varchar(40) NOT NULL, <%-- Added just so theres not one attribute. Also you need a license nowadays for anything so you might need to keep name -->
-	CONSTRAINT [XPKCustomer] PRIMARY KEY  CLUSTERED ([receipt_id] ASC),
-	CONSTRAINT [R_28] FOREIGN KEY ([receipt_id]) REFERENCES [Sales_receipt]([receipt_id])
-)
+	receipt_id        INT  NOT NULL ,
+	customer_name		  VARCHAR(40) NOT NULL, 
+	PRIMARY KEY       (receipt_id),
+	FOREIGN KEY       (receipt_id) REFERENCES Sales_receipt(receipt_id)
+);
 
-CREATE TABLE [Diseases]
+CREATE TABLE Diseases
 ( 
-	[disease_name]       varchar(20)  NOT NULL ,
-	[species_name]       varchar(20)  NOT NULL ,
-	[symptoms]           varchar(80)  NULL ,
-	[treatment]          varchar(50)  NULL ,
-	CONSTRAINT [XPKDiseases] PRIMARY KEY  CLUSTERED ([disease_name] ASC,[species_name] ASC),
-	CONSTRAINT [R_19] FOREIGN KEY ([species_name]) REFERENCES [Species]([species_name])
-)
+	disease_name       VARCHAR(20)  NOT NULL ,
+	species_name       VARCHAR(20)  NOT NULL ,
+	symptoms           VARCHAR(80)  NULL ,
+	treatment          VARCHAR(50)  NULL ,
+	PRIMARY KEY        (disease_name, species_name),
+	FOREIGN KEY        (species_name) REFERENCES Species(species_name)
+);
 
-CREATE TABLE [Upkeep]
+CREATE TABLE Upkeep
 ( 
-	[date_of_check]      date  NOT NULL ,
-	[enclosure_id]       integer(4)  NOT NULL ,
-	[staff_id]           integer(4)  NOT NULL ,
-	[enclosure_cleaned]  char(1)  NULL ,
-	[animals_fed]        char(1)  NULL ,
-	[exercise_if_required] char(1)  NULL ,
-	[disease_name]       varchar(20)  NULL ,
-	[species_name]       varchar(20)  NULL ,
-	CONSTRAINT [XPKUpkeep] PRIMARY KEY  CLUSTERED ([date_of_check] ASC,[enclosure_id] ASC,[staff_id] ASC),
-	CONSTRAINT [R_20] FOREIGN KEY ([enclosure_id]) REFERENCES [Enclosure]([enclosure_id]),
-CONSTRAINT [R_21] FOREIGN KEY ([disease_name],[species_name]) REFERENCES [Diseases]([disease_name],[species_name]),
-CONSTRAINT [R_22] FOREIGN KEY ([staff_id]) REFERENCES [Staff]([staff_id])
-)
+	date_of_check           DATE          NOT NULL ,
+	enclosure_id            INT           NOT NULL ,
+	staff_id                INT           NOT NULL ,
+	enclosure_cleaned       CHAR(1)       NULL ,
+	animals_fed             CHAR(1)       NULL ,
+	exercise_if_required    CHAR(1)       NULL ,
+	disease_name            VARCHAR(20)   NULL ,
+	species_name            VARCHAR(20)   NULL ,
+	PRIMARY KEY             (date_of_check, enclosure_id, staff_id),
+	FOREIGN KEY             (enclosure_id) REFERENCES Enclosure(enclosure_id),
+  FOREIGN KEY             (disease_name,species_name) REFERENCES Diseases(disease_name,species_name),
+  FOREIGN KEY (staff_id)  REFERENCES Staff(staff_id)
+);
