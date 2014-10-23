@@ -54,20 +54,20 @@ INSERT INTO enclosure (enclosure_id, enclosure_type) VALUES (5009, 'tank');     
 
 
 --Animal Table
-INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6001, 'White', '2feet', '15kg', 'dog', 5001);
-INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6002, 'brown', '1feet', '7.5kkg', 'dog', 5002);
-INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6003, 'White', '1feet', '7.5kg', 'cat', 5003);
-INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6004, 'White', '2feet', '15kg', 'cat', 5004);
-INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6005, 'White', '10cm', '0.5kg', 'hamster', 5005);
-INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6006, 'White', '10cm', '0.5kg', 'hamster', 5005);
-INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6007, 'brown', '10cm', '0.5kg', 'guinea pig', 5006);
-INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6008, 'brown', '10cm', '0.5kg', 'guinea pig', 5006);
-INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6009, 'White', '10cm', '0.5kg', 'white mice', 5007);
-INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6010, 'White', '10cm', '0.5kg', 'white mice', 5007);
-INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6011, 'grey', '50cm', '0.5kg', 'cold water fish', 5008);
-INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6012, 'grey', '50cm', '0.5kg', 'cold water fish', 5008);
-INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6013, 'gold', '50cm', '0.5kg', 'tropical fish', 5009);
-INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id) VALUES (6014, 'gold', '50cm', '0.5kg', 'tropical fish', 5009);
+INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id, treatment, sold) VALUES (6001, 'White', '2feet', '15kg', 'dog', 5001, null, 'N');
+INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id, treatment, sold) VALUES (6002, 'brown', '1feet', '7.5kkg', 'dog', 5002, null, 'N');
+INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id, treatment, sold) VALUES (6003, 'White', '1feet', '7.5kg', 'cat', 5003, null, 'N');
+INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id, treatment, sold) VALUES (6004, 'White', '2feet', '15kg', 'cat', 5004, null, 'N');
+INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id, treatment, sold) VALUES (6005, 'White', '10cm', '0.5kg', 'hamster', 5005, null, 'N');
+INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id, treatment, sold) VALUES (6006, 'White', '10cm', '0.5kg', 'hamster', 5005, null, 'N');
+INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id, treatment, sold) VALUES (6007, 'brown', '10cm', '0.5kg', 'guinea pig', 5006, null, 'N');
+INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id, treatment, sold) VALUES (6008, 'brown', '10cm', '0.5kg', 'guinea pig', 5006, null, 'N');
+INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id, treatment, sold) VALUES (6009, 'White', '10cm', '0.5kg', 'white mice', 5007, null, 'N');
+INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id, treatment, sold) VALUES (6010, 'White', '10cm', '0.5kg', 'white mice', 5007, null, 'N');
+INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id, treatment, sold) VALUES (6011, 'grey', '50cm', '0.5kg', 'cold water fish', 5008, null, 'N');
+INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id, treatment, sold) VALUES (6012, 'grey', '50cm', '0.5kg', 'cold water fish', 5008, null, 'N');
+INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id, treatment, sold) VALUES (6013, 'gold', '50cm', '0.5kg', 'tropical fish', 5009, null, 'N');
+INSERT INTO animal (animal_id, colour, height, weight, species_name, enclosure_id, treatment, sold) VALUES (6014, 'gold', '50cm', '0.5kg', 'tropical fish', 5009, null, 'N');
 
 
 --Veterinary Cert Inserts
