@@ -1,31 +1,4 @@
-CREATE USER ghealy IDENTIFIED BY 1234;
-CREATE USER fmarron IDENTIFIED BY 1234;
-CREATE USER sburke IDENTIFIED BY 1234;
 
-GRANT SELECT ON Upkeep TO PUBLIC;
-GRANT SELECT ON Diseases TO PUBLIC;
-GRANT SELECT ON Customer TO PUBLIC;
-GRANT SELECT ON Sales_receipt TO PUBLIC;
-GRANT SELECT ON Materials TO PUBLIC;
-GRANT SELECT ON Veterinary_cert TO PUBLIC;
-GRANT SELECT ON Animal TO PUBLIC;
-GRANT SELECT ON Enclosure TO PUBLIC;
-GRANT SELECT ON Species TO PUBLIC;
-GRANT SELECT ON Stock TO PUBLIC; 
-GRANT SELECT ON Stock_order TO PUBLIC;
-GRANT SELECT ON Suppliers TO PUBLIC;
-GRANT SELECT ON Staff TO PUBLIC;
-
-GRANT UPDATE ON Animal TO fmarron
-GRANT INSERT ON Customer TO fmarron
-GRANT UPDATE ON Animal TO fmarron
-GRANT UPDATE ON Materials TO fmarron
-GRANT INSERT ON Sales_receipt TO fmarron
-
-GRANT UPDATE ON stock_order TO ghealy;
-GRANT UPDATE ON stock TO ghealy;
-GRANT INSERT ON animal TO ghealy;
-GRANT UPDATE ON enclosure TO ghealy';
 
 DROP TABLE Upkeep;
 
@@ -122,7 +95,8 @@ CREATE TABLE Animal
 	species_name       VARCHAR(20)  NULL ,
 	enclosure_id       INT          NULL ,
 	treatment		   VARCHAR(20)	NULL ,
-	sold			   CHAR(1)		NOT NULL ,
+	sold		   CHAR(1)		NOT NULL ,
+	disease	   CHAR(1)		NOT NULL,
 	PRIMARY KEY       (animal_id),
 	FOREIGN KEY (species_name) REFERENCES Species(species_name),
   	FOREIGN KEY (enclosure_id) REFERENCES Enclosure(enclosure_id)
