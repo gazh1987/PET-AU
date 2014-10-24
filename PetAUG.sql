@@ -16,16 +16,19 @@ GRANT SELECT ON Stock_order TO PUBLIC;
 GRANT SELECT ON Suppliers TO PUBLIC;
 GRANT SELECT ON Staff TO PUBLIC;
 
-GRANT UPDATE ON Animal TO fmarron
-GRANT INSERT ON Customer TO fmarron
-GRANT UPDATE ON Animal TO fmarron
-GRANT UPDATE ON Materials TO fmarron
-GRANT INSERT ON Sales_receipt TO fmarron
+GRANT UPDATE ON Animal TO fmarron;
+GRANT INSERT ON Customer TO fmarron;
+GRANT UPDATE ON Animal TO fmarron;
+GRANT UPDATE ON Materials TO fmarron;
+GRANT INSERT ON Sales_receipt TO fmarron;
 
 GRANT UPDATE ON stock_order TO ghealy;
 GRANT UPDATE ON stock TO ghealy;
 GRANT INSERT ON animal TO ghealy;
 GRANT UPDATE ON enclosure TO ghealy;
+
+GRANT UPDATE ON Upkeep TO sburke;
+GRANT UPDATE ON Animal TO sburke;
 
 DROP TABLE Upkeep;
 

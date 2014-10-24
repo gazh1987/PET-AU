@@ -108,7 +108,7 @@ INSERT INTO sales_receipt (receipt_id, animal_id, material_id, sale_date) VALUES
 
 --Customer
 INSERT INTO customer (receipt_id, customer_name) VALUES (9001, 'Joe Bloggs');
-INSERT INTO customer (receipt_id, customer_name) VALUES (9002, 'Annie Yowks');
+INSERT INTO customer (receipt_id, customer_name) VALUES (9002, 'Annie Jobbs');
 
 
 --DISEASES TABLE
