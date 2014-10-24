@@ -70,8 +70,6 @@ CREATE TABLE Stock
 	sale_price          NUMBER (19, 4)  NULL ,
 	amount_in_stock     INT             NULL ,
 	reorder_level       INT             NULL ,
-	order_no            INT             NULL ,
-	supplier_id         INT             NULL ,
 	PRIMARY KEY         (stock_id)
 );
 
@@ -161,7 +159,7 @@ CREATE TABLE Sales_receipt
 CREATE TABLE Customer
 ( 
 	receipt_id        INT  NOT NULL ,
-	customer_name		  VARCHAR(40) NOT NULL, 
+	customer_name	  VARCHAR(40) NULL, 
 	PRIMARY KEY       (receipt_id),
 	FOREIGN KEY       (receipt_id) REFERENCES Sales_receipt(receipt_id)
 );
