@@ -24,7 +24,7 @@ GRANT INSERT ON Sales_receipt TO fmarron
 
 GRANT UPDATE ON stock_order TO ghealy;
 GRANT UPDATE ON stock TO ghealy;
-GRANT INSERT ON animal TO ghealy';
+GRANT INSERT ON animal TO ghealy;
 GRANT UPDATE ON enclosure TO ghealy';
 
 DROP TABLE Upkeep;
