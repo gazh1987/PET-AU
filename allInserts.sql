@@ -33,10 +33,10 @@ INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES 
 INSERT INTO stock (stock_id, sale_price, amount_in_stock, reorder_level) VALUES (3019, 50.00 , 2, 1); --hamster cage
 
 --Stock Order Inserts
-INSERT INTO Stock_order (order_no, supplier_id, stock_id, quantity, cost_price, staff_id, order_date) VALUES (4000, 2001, 3001, 30, 05.00, 1234, '10-Oct-14');
-INSERT INTO Stock_order (order_no, supplier_id, stock_id, quantity, cost_price, staff_id, order_date) VALUES (4001, 2002, 3002, 2, 60.00, 1235, '12-Oct-14');
-INSERT INTO Stock_order (order_no, supplier_id, stock_id, quantity, cost_price, staff_id, order_date) VALUES (4002, 2003, 3012, 30, 05.00, 1236, '15-Oct-14');
-INSERT INTO Stock_order (order_no, supplier_id, stock_id, quantity, cost_price, staff_id, order_date) VALUES (4003, 2004, 3004, 1, 05.00, 1234, '10-Oct-14');
+INSERT INTO Stock_order (order_no, supplier_id, stock_id, quantity, cost_price, staff_id, order_date, delivered) VALUES (4000, 2001, 3001, 30, 05.00, 1234, '10-Oct-14','y');
+INSERT INTO Stock_order (order_no, supplier_id, stock_id, quantity, cost_price, staff_id, order_date, delivered) VALUES (4001, 2002, 3002, 2, 60.00, 1235, '12-Oct-14','y');
+INSERT INTO Stock_order (order_no, supplier_id, stock_id, quantity, cost_price, staff_id, order_date, delivered) VALUES (4002, 2003, 3012, 30, 05.00, 1236, '15-Oct-14','y');
+INSERT INTO Stock_order (order_no, supplier_id, stock_id, quantity, cost_price, staff_id, order_date, delivered) VALUES (4003, 2004, 3004, 1, 05.00, 1234, '10-Oct-14','n');
 
 
 --Species Inserts
@@ -49,15 +49,19 @@ INSERT INTO Species (species_name, feeding_instructions, stock_id, enclosure_siz
 INSERT INTO Species (species_name, feeding_instructions, stock_id, enclosure_size, healthcare, cleaning_requirements) VALUES ('tropical fish', '2 times daily', 3010, 'large', 'medicine', 'clean daily');
 
 --Enclosure Table
-INSERT INTO enclosure (enclosure_id, enclosure_type) VALUES (5001, 'individual'); --dog
-INSERT INTO enclosure (enclosure_id, enclosure_type) VALUES (5002, 'individual'); --dog
-INSERT INTO enclosure (enclosure_id, enclosure_type) VALUES (5003, 'individual'); --cat
-INSERT INTO enclosure (enclosure_id, enclosure_type) VALUES (5004, 'individual'); --cat
-INSERT INTO enclosure (enclosure_id, enclosure_type) VALUES (5005, 'communal');   --hamsters
-INSERT INTO enclosure (enclosure_id, enclosure_type) VALUES (5006, 'communal');   --guinea pigs
-INSERT INTO enclosure (enclosure_id, enclosure_type) VALUES (5007, 'communal');   --white mice
-INSERT INTO enclosure (enclosure_id, enclosure_type) VALUES (5008, 'tank');	  --cold water fish
-INSERT INTO enclosure (enclosure_id, enclosure_type) VALUES (5009, 'tank');       --tropical fish
+INSERT INTO enclosure (enclosure_id, enclosure_type, occupied) VALUES (5001, 'individual', 'y'); --dog
+INSERT INTO enclosure (enclosure_id, enclosure_type, occupied) VALUES (5002, 'individual', 'y'); --dog
+INSERT INTO enclosure (enclosure_id, enclosure_type, occupied) VALUES (5003, 'individual', 'y'); --cat
+INSERT INTO enclosure (enclosure_id, enclosure_type, occupied) VALUES (5004, 'individual', 'y'); --cat
+INSERT INTO enclosure (enclosure_id, enclosure_type, occupied) VALUES (5005, 'communal', 'y');   --hamsters
+INSERT INTO enclosure (enclosure_id, enclosure_type, occupied) VALUES (5006, 'communal', 'y');   --guinea pigs
+INSERT INTO enclosure (enclosure_id, enclosure_type, occupied) VALUES (5007, 'communal', 'y');   --white mice
+INSERT INTO enclosure (enclosure_id, enclosure_type, occupied) VALUES (5008, 'tank', 'y');	  --cold water fish
+INSERT INTO enclosure (enclosure_id, enclosure_type, occupied) VALUES (5009, 'tank', 'y');       --tropical fish
+INSERT INTO enclosure (enclosure_id, enclosure_type, occupied) VALUES (5010, 'individual', 'n'); 
+INSERT INTO enclosure (enclosure_id, enclosure_type, occupied) VALUES (5011, 'individual', 'n'); 
+INSERT INTO enclosure (enclosure_id, enclosure_type, occupied) VALUES (5012, 'individual', 'n'); 
+INSERT INTO enclosure (enclosure_id, enclosure_type, occupied) VALUES (5013, 'individual', 'n'); 
 
 
 --Animal Table

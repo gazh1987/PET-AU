@@ -84,6 +84,7 @@ CREATE TABLE Stock_order
 	cost_price          NUMBER(19,4)  NULL ,
 	staff_id            INT  NULL ,
 	order_date          date  NULL ,
+	delivered	    char(1)	NOT NULL,
 	PRIMARY KEY  (order_no, supplier_id),
   	FOREIGN KEY (staff_id) REFERENCES Staff (staff_id),
   	FOREIGN KEY (supplier_id) REFERENCES Suppliers(supplier_id),
@@ -106,6 +107,7 @@ CREATE TABLE Enclosure
 ( 
 	enclosure_id        INT          NOT NULL ,
 	enclosure_type      VARCHAR(20)  NULL ,
+	occupied	    char(1) 	 NOT NULL,
 	PRIMARY KEY         (enclosure_id)
 );
 
